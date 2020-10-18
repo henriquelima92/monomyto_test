@@ -15,10 +15,15 @@ public class EnemyChaseState : State
     }
     public override void Tick() 
     {
+        if (HasPlayerInSight() == true)
+        {
+            entity.SetState(new EnemyShootingState(entity, target));
+        }
+
         currentChaseTime += Time.deltaTime;
         if(currentChaseTime < chaseTime)
         {
-            entity.transform.position = Vector2.MoveTowards(entity.transform.position, target.transform.position, movementSpeed * Time.deltaTime);
+            entity.transform.position = Vector2.MoveTowards(entity.transform.position, target.transform.position, movementSpeed * Time.deltaTime);   
         }
         else
         {
@@ -30,4 +35,12 @@ public class EnemyChaseState : State
         entity.GetComponent<SpriteRenderer>().color = Color.green;
     }
     public override void OnStateExit() { }
+
+    private bool HasPlayerInSight()
+    {
+        if (Vector2.Distance(entity.transform.position, target.position) < 2f)
+            return true;
+
+        return false;
+    }
 }
