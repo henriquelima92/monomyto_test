@@ -7,7 +7,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField]
     protected State currentState;
     [SerializeField]
-    protected float life = 100f;
+    protected float health = 100f;
 
     public void SetState(State newState)
     {

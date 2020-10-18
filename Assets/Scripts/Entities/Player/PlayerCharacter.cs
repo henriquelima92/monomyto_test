@@ -6,10 +6,10 @@ public class PlayerCharacter : Entity
 {
     private void Start()
     {
-        //SetState();   
+        SetState(new PlayerMovementState(this));
     }
     private void Update()
     {
-        //currentState.Tick();
+        currentState.Tick();
     }
 }
