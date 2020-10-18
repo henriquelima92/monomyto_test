@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Serializable]
 public abstract class Entity : MonoBehaviour
 {
     [SerializeField]
     protected State currentState;
+    [SerializeField]
+    protected float life = 100f;
+
     public void SetState(State newState)
     {
         if(currentState != null)

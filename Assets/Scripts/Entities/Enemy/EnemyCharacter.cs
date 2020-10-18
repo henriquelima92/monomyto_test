@@ -6,10 +6,10 @@ public class EnemyCharacter : Entity
 {
     private void Start()
     {
-        //SetState();   
+        SetState(new EnemyMovementState(this));   
     }
     private void Update()
     {
-        //currentState.Tick();
+        currentState.Tick();
     }
 }
