@@ -14,7 +14,11 @@ public class PlayerMovementState : State
     public override void Tick()
     {
         axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        entity.transform.position += (axisInput * movementSpeed * Time.deltaTime);
+        Vector3 newPosition = entity.transform.position + axisInput * movementSpeed * Time.deltaTime;
+        if (Utilities.IsInsideLevelLimits(newPosition) == true)
+        {
+            entity.transform.position += (newPosition);
+        }
     }
 
     public override void OnStateEnter()

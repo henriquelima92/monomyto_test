@@ -15,4 +15,15 @@ public static class Utilities
             Random.Range(MINLEVELWIDTH, MAXLEVELWIDTH), 
             Random.Range(MINLEVELHEIGHT, MAXLEVELHEIGHT));
     }
+
+    public static bool IsInsideLevelLimits(Vector2 position)
+    {
+        if(position.x < MAXLEVELWIDTH && position.x > MINLEVELWIDTH
+            && position.y < MAXLEVELHEIGHT && position.y > MINLEVELHEIGHT)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
