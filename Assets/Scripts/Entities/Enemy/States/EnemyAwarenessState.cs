@@ -4,8 +4,34 @@ using UnityEngine;
 
 public class EnemyAwarenessState : State
 {
-    public EnemyAwarenessState(Entity entity) : base(entity) { }
-    public override void Tick() { }
-    public override void OnStateEnter() { }
+    private Transform target;
+    private Vector3 targetDirection;
+    private float movementSpeed = 0.5f;
+    public EnemyAwarenessState(Entity entity, Transform target) : base(entity) 
+    {
+        this.target = target;
+    }
+    public override void Tick()
+    {
+        entity.transform.position += targetDirection * movementSpeed * Time.deltaTime;
+
+        if(HasEscaped() == true)
+        {
+            entity.SetState(new EnemyMovementState(entity, target));
+        }
+    }
+    public override void OnStateEnter() 
+    {
+        targetDirection = (target.transform.position * -1 - entity.transform.position).normalized;
+        entity.GetComponent<SpriteRenderer>().color = Color.magenta;
+    }
     public override void OnStateExit() { }
+
+    private bool HasEscaped()
+    {
+        if (Vector2.Distance(entity.transform.position, target.position) > 5f)
+            return true;
+
+        return false;
+    }
 }

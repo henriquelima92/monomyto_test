@@ -18,12 +18,12 @@ public class EnemyShootingState : State
         }
         else
         {
-
+            entity.SetState(new EnemyChaseState(entity, target));
         }
     }
     public override void OnStateEnter() 
     {
-        entity.GetComponent<SpriteRenderer>().color = Color.red;
+        entity.GetComponent<SpriteRenderer>().color = Color.blue;
     }
     public override void OnStateExit() { }
 
