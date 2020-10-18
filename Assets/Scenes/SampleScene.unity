@@ -191,6 +191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2957078559079099709, guid: 1b3efd6fa5ca13342ad0f8403accce81,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -279,5 +284,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotSystem.prefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotSystem.prefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
+        type: 3}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotSystem.prefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
+        type: 3}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotSystem.prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
+        type: 3}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
+        type: 3}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
+        type: 3}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: shotPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45939e3e16c205f43a7766ce2e32096f, type: 3}

@@ -9,6 +9,10 @@ public static class Utilities
     public const float MAXLEVELHEIGHT = 7f;
     public const float MINLEVELHEIGHT = -7f;
 
+    public const string ENEMYTAG = "EnemyEntity";
+    public const string PLAYERTAG = "PlayerEntity";
+    public const string BOXTAG = "BoxEntity";
+
     public static Vector2 GetRandomPointInLevel()
     {
         return new Vector2(
