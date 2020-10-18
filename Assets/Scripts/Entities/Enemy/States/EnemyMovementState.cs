@@ -4,12 +4,14 @@ using UnityEngine;
 [Serializable]
 public class EnemyMovementState : State
 {
-    [SerializeField]
+    private Transform target;
     private float movementSpeed = 0.5f;
-    [SerializeField]
     private Vector2 nextDestination;
 
-    public EnemyMovementState(Entity entity) : base(entity) { }
+    public EnemyMovementState(Entity entity, Transform target) : base(entity) 
+    {
+        this.target = target;
+    }
     public override void Tick() 
     { 
         if(ReachedDestination() == true)
@@ -19,6 +21,10 @@ public class EnemyMovementState : State
 
         entity.transform.position = Vector2.MoveTowards(entity.transform.position, nextDestination, movementSpeed * Time.deltaTime);
         
+        if(HasPlayerInSight() == true)
+        {
+            entity.SetState(new EnemyShootingState(entity, target));
+        }
     }
     public override void OnStateEnter() 
     {
@@ -27,9 +33,15 @@ public class EnemyMovementState : State
     }
     public override void OnStateExit() 
     {
-        entity.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
+    private bool HasPlayerInSight()
+    {
+        if (Vector2.Distance(entity.transform.position, target.position) < 2f)
+            return true;
+
+        return false;
+    }
     private Vector2 GetRandomDestination()
     {
         return Utilities.GetRandomPointInLevel();

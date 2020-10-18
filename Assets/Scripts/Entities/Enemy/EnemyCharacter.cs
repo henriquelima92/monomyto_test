@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyCharacter : Entity
 {
+    private Transform target;
+
     private void Start()
     {
-        SetState(new EnemyMovementState(this));   
+        target = GameObject.FindWithTag("PlayerEntity").transform;
+        SetState(new EnemyMovementState(this, target));   
     }
     private void Update()
     {
