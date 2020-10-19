@@ -6,9 +6,16 @@ public class EnemyCharacter : Entity
 {
     private Transform target;
 
+    public override void EntityDefeat()
+    {
+        Destroy(gameObject);
+    }
+
     private void Awake()
     {
         healthSystem = new HealthSystem(this, health);
+
+        OnEntityDefeat += EntityDefeat;
     }
 
     private void Start()
@@ -19,5 +26,10 @@ public class EnemyCharacter : Entity
     private void Update()
     {
         currentState.Tick();
+    }
+
+    private void OnDestroy()
+    {
+        OnEntityDefeat -= EntityDefeat;
     }
 }

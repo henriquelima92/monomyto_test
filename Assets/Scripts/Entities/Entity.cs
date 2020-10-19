@@ -4,6 +4,8 @@ using UnityEngine;
 [Serializable]
 public abstract class Entity : MonoBehaviour
 {
+    public Action OnEntityDefeat;
+
     [SerializeField]
     protected State currentState;
     [SerializeField]
@@ -11,11 +13,13 @@ public abstract class Entity : MonoBehaviour
     [SerializeField]
     protected HealthSystem healthSystem;
 
+
+    public abstract void EntityDefeat();
+
     public State GetState()
     {
         return currentState;
     }
-
     public void SetState(State newState)
     {
         if(currentState != null)
@@ -30,7 +34,6 @@ public abstract class Entity : MonoBehaviour
             currentState.OnStateEnter();
         }
     }
-
     public HealthSystem GetHealthSystem()
     {
         return healthSystem;

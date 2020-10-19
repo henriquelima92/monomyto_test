@@ -10,10 +10,17 @@ public class PlayerCharacter : Entity
     [SerializeField]
     private PlayerShotSystem shotSystem;
 
+    public override void EntityDefeat()
+    {
+        Destroy(gameObject);
+    }
+
     private void Awake()
     {
         healthSystem = new HealthSystem(this, health);
         shotSystem = new PlayerShotSystem(this, shotPrefabs);
+
+        OnEntityDefeat += EntityDefeat;
     }
     private void Start()
     {
@@ -23,5 +30,9 @@ public class PlayerCharacter : Entity
     {
         currentState.Tick();
         shotSystem.Tick();
+    }
+    private void OnDestroy()
+    {
+        OnEntityDefeat -= EntityDefeat;
     }
 }

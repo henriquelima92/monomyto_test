@@ -35,7 +35,7 @@ public class HealthSystem
             OnHealthChange?.Invoke(health);
             if(health == 0)
             {
-                GameObject.Destroy(entity.gameObject);
+                entity.OnEntityDefeat?.Invoke();
             }
         }
     }
