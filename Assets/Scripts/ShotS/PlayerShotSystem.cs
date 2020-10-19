@@ -1,28 +1,22 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ShotSystem
+public class PlayerShotSystem : ShotSystem
 {
-    private Entity entity;
-    [SerializeField]
-    private List<GameObject> prefabs;
     [SerializeField]
     private List<int> shotsAmount;
     [SerializeField]
     private int shotSelected;
 
-    public ShotSystem(Entity entity, List<GameObject> shotPrefabs)
+    public PlayerShotSystem(Entity entity, List<GameObject> shotPrefabs) : base(entity, shotPrefabs)
     {
-        this.entity = entity;
-        prefabs = shotPrefabs;
         shotSelected = 0;
         shotsAmount = new List<int> {10,10,10};
     }
 
-    public void Tick()
+    public override void Tick()
     {
         if(Input.GetMouseButtonDown(0))
         {
@@ -35,13 +29,7 @@ public class ShotSystem
         }
     }
 
-    private void ChangeShotType()
-    {
-        shotSelected = (shotSelected < shotsAmount.Count-1) ? (shotSelected += 1) : 0;
-        Debug.Log("change to shot index: " + shotSelected);
-    }
-
-    private void CreateShot()
+    public override void CreateShot()
     {
         if(shotsAmount[shotSelected] > 0)
         {
@@ -62,5 +50,10 @@ public class ShotSystem
         {
             Debug.Log("out of shots with index: " + shotSelected);
         }
+    }
+    private void ChangeShotType()
+    {
+        shotSelected = (shotSelected < shotsAmount.Count - 1) ? (shotSelected += 1) : 0;
+        Debug.Log("change to shot index: " + shotSelected);
     }
 }
