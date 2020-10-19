@@ -12,7 +12,7 @@ public class PlayerCharacter : Entity
 
     private void Awake()
     {
-        //healthSystem = new HealthSystem(this, health);
+        healthSystem = new HealthSystem(this, health);
         shotSystem = new PlayerShotSystem(this, shotPrefabs);
     }
     private void Start()

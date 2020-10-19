@@ -15,6 +15,10 @@ public class HealthSystem
         this.health = health;
     }
 
+    public float GetHealthAmount()
+    {
+        return health;
+    }
     public void IncreaseHealth(float amount)
     {
         if(health <= 100)

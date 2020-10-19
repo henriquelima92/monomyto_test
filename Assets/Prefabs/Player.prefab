@@ -185,7 +185,6 @@ MonoBehaviour:
   health: 100
   shotPrefabs: []
   shotSystem:
-    prefabs: []
     shotsAmount: 
     shotSelected: 0
 --- !u!61 &6025861832572004352
@@ -198,7 +197,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -352,6 +351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7526737831376518391, guid: 4fc513e7ee89a5845884f6aded6d181a,
+        type: 3}
+      propertyPath: entity
+      value: 
+      objectReference: {fileID: 8695844711398814058}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc513e7ee89a5845884f6aded6d181a, type: 3}
 --- !u!224 &3272948928222450662 stripped

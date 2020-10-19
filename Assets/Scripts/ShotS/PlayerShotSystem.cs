@@ -40,8 +40,7 @@ public class PlayerShotSystem : ShotSystem
             
             GameObject shotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
             Shot shot = shotObject.GetComponent<Shot>();
-            shot.SetDirection(direction);
-
+            shot.Setup(direction, entity);
 
             Debug.Log("shoot with shot index: " + shotSelected);
             Debug.Log("shots left: " + shotsAmount[shotSelected]);

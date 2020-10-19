@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,11 +14,16 @@ public static class Utilities
     public const string PLAYERTAG = "PlayerEntity";
     public const string BOXTAG = "BoxEntity";
 
+    public static List<string> GetEntitiesTags()
+    {
+        return new List<string> { ENEMYTAG, PLAYERTAG, BOXTAG };
+    }
+
     public static Vector2 GetRandomPointInLevel()
     {
         return new Vector2(
-            Random.Range(MINLEVELWIDTH, MAXLEVELWIDTH), 
-            Random.Range(MINLEVELHEIGHT, MAXLEVELHEIGHT));
+            UnityEngine.Random.Range(MINLEVELWIDTH, MAXLEVELWIDTH),
+            UnityEngine.Random.Range(MINLEVELHEIGHT, MAXLEVELHEIGHT));
     }
 
     public static bool IsInsideLevelLimits(Vector2 position)

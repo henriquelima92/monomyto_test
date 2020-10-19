@@ -11,7 +11,7 @@ public class NormalShot : Shot
     private void Update()
     {
         transform.position += direction * movementSpeed * Time.deltaTime;
-        if(IsInLevelLimits() == false)
+        if(Utilities.IsInsideLevelLimits(transform.position) == false)
         {
             Destroy(gameObject);
         }
@@ -19,10 +19,9 @@ public class NormalShot : Shot
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == Utilities.ENEMYTAG 
-            || collision.transform.tag == Utilities.PLAYERTAG
-            || collision.transform.tag == Utilities.BOXTAG)
+        if (collision.transform.tag != entity.tag && Utilities.GetEntitiesTags().Contains(collision.tag))
         {
+            Debug.Log(collision.transform.tag);
             collision.GetComponent<Entity>().GetHealthSystem().DecreaseHealth(10f);
             Debug.Log("hit");
             Destroy(gameObject);

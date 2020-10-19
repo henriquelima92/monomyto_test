@@ -11,6 +11,11 @@ public abstract class Entity : MonoBehaviour
     [SerializeField]
     protected HealthSystem healthSystem;
 
+    public State GetState()
+    {
+        return currentState;
+    }
+
     public void SetState(State newState)
     {
         if(currentState != null)
