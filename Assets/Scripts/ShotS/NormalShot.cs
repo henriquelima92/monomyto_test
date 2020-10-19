@@ -19,8 +19,11 @@ public class NormalShot : Shot
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == Utilities.ENEMYTAG)
+        if(collision.transform.tag == Utilities.ENEMYTAG 
+            || collision.transform.tag == Utilities.PLAYERTAG
+            || collision.transform.tag == Utilities.BOXTAG)
         {
+            collision.GetComponent<Entity>().GetHealthSystem().DecreaseHealth(10f);
             Debug.Log("hit");
             Destroy(gameObject);
         }

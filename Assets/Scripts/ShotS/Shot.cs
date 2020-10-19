@@ -11,7 +11,7 @@ public abstract class Shot : MonoBehaviour
 
     public void SetDirection(Vector3 direction)
     {
-        this.direction = direction;
+        this.direction = new Vector3(direction.x, direction.y, 0f);
     }
 
     public bool IsInLevelLimits()

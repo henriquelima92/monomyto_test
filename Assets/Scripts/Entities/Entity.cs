@@ -8,6 +8,8 @@ public abstract class Entity : MonoBehaviour
     protected State currentState;
     [SerializeField]
     protected float health = 100f;
+    [SerializeField]
+    protected HealthSystem healthSystem;
 
     public void SetState(State newState)
     {
@@ -22,5 +24,10 @@ public abstract class Entity : MonoBehaviour
         {
             currentState.OnStateEnter();
         }
+    }
+
+    public HealthSystem GetHealthSystem()
+    {
+        return healthSystem;
     }
 }

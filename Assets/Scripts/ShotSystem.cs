@@ -13,6 +13,7 @@ public class ShotSystem
     private List<int> shotsAmount;
     [SerializeField]
     private int shotSelected;
+
     public ShotSystem(Entity entity, List<GameObject> shotPrefabs)
     {
         this.entity = entity;
@@ -23,7 +24,7 @@ public class ShotSystem
 
     public void Tick()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(0))
         {
             CreateShot();
         }

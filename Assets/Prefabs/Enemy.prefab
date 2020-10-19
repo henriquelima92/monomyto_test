@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7526737831376518391, guid: 4fc513e7ee89a5845884f6aded6d181a,
+        type: 3}
+      propertyPath: entity
+      value: 
+      objectReference: {fileID: 2087008483485302742}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc513e7ee89a5845884f6aded6d181a, type: 3}
 --- !u!224 &2315504692196544939 stripped

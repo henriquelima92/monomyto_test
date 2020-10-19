@@ -131,6 +131,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 428790654202980183, guid: 1b3efd6fa5ca13342ad0f8403accce81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 783663695411066031, guid: 1b3efd6fa5ca13342ad0f8403accce81,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 976494260531838179, guid: 1b3efd6fa5ca13342ad0f8403accce81,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2087008483485302728, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,6 +237,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 519420031, guid: 45939e3e16c205f43a7766ce2e32096f, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406567583889649458, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406567583889649458, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8695844711398814055, guid: 45939e3e16c205f43a7766ce2e32096f,
@@ -330,5 +355,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3,
         type: 3}
+    - target: {fileID: 8695844711398814058, guid: 45939e3e16c205f43a7766ce2e32096f,
+        type: 3}
+      propertyPath: cursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 64196ed7b0467eb4ea922fcfa7662187, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45939e3e16c205f43a7766ce2e32096f, type: 3}

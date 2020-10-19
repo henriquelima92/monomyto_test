@@ -6,12 +6,17 @@ public class PlayerCharacter : Entity
 {
     [SerializeField]
     private List<GameObject> shotPrefabs;
+
     [SerializeField]
     private ShotSystem shotSystem;
 
+    private void Awake()
+    {
+        //healthSystem = new HealthSystem(this, health);
+        shotSystem = new ShotSystem(this, shotPrefabs);
+    }
     private void Start()
     {
-        shotSystem = new ShotSystem(this, shotPrefabs);
         SetState(new PlayerMovementState(this));
     }
     private void Update()

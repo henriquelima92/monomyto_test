@@ -6,6 +6,11 @@ public class EnemyCharacter : Entity
 {
     private Transform target;
 
+    private void Awake()
+    {
+        healthSystem = new HealthSystem(this, health);
+    }
+
     private void Start()
     {
         target = GameObject.FindWithTag("PlayerEntity").transform;
