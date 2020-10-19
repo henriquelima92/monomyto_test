@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShootingState : State
 {
     private Transform target;
+    private ShotSystem shotSystem;
 
     public EnemyShootingState(Entity entity, Transform target) : base(entity)
     {
@@ -14,7 +15,7 @@ public class EnemyShootingState : State
     {
         if(HasPlayerInSight() == true)
         {
-            //shot
+            shotSystem.Tick();
         }
         else
         {
@@ -24,8 +25,12 @@ public class EnemyShootingState : State
     public override void OnStateEnter() 
     {
         entity.GetComponent<SpriteRenderer>().color = Color.blue;
+        shotSystem = entity.GetShotSystem();
     }
-    public override void OnStateExit() { }
+    public override void OnStateExit() 
+    {
+        shotSystem.ResetSystem();
+    }
 
     private bool HasPlayerInSight()
     {

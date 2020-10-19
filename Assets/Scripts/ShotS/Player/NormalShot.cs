@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class NormalShot : Shot
 {
-    private void Start()
-    {
-        movementSpeed = 10f;
-    }
     private void Update()
     {
         transform.position += direction * movementSpeed * Time.deltaTime;

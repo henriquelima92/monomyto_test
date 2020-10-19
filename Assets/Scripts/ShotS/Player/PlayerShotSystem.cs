@@ -35,12 +35,11 @@ public class PlayerShotSystem : ShotSystem
         {
             shotsAmount[shotSelected] -= 1;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(mousePosition);
-            Vector3 direction = (mousePosition - entity.transform.position).normalized;
+            Vector3 direction = (new Vector3(mousePosition.x, mousePosition.y, 0f) - entity.transform.position).normalized;
             
             GameObject shotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
             Shot shot = shotObject.GetComponent<Shot>();
-            shot.Setup(direction, entity);
+            shot.Setup(direction, 10, entity);
 
             Debug.Log("shoot with shot index: " + shotSelected);
             Debug.Log("shots left: " + shotsAmount[shotSelected]);

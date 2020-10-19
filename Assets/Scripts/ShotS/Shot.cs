@@ -11,9 +11,10 @@ public abstract class Shot : MonoBehaviour
     [SerializeField]
     protected Vector3 direction;
 
-    public void Setup(Vector3 direction, Entity emitter)
+    public void Setup(Vector3 direction, float movementSpeed, Entity emitter)
     {
-        this.direction = new Vector3(direction.x, direction.y, 0f);
+        this.direction = direction;
+        this.movementSpeed = movementSpeed;
         entity = emitter;
     }
 }

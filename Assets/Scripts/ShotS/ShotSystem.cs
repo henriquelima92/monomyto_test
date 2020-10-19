@@ -13,4 +13,6 @@ public abstract class ShotSystem
     }
     public abstract void Tick();
     public abstract void CreateShot();
+
+    public virtual void ResetSystem() {}
 }

@@ -7,9 +7,6 @@ public class PlayerCharacter : Entity
     [SerializeField]
     private List<GameObject> shotPrefabs;
 
-    [SerializeField]
-    private PlayerShotSystem shotSystem;
-
     public override void EntityDefeat()
     {
         Destroy(gameObject);
