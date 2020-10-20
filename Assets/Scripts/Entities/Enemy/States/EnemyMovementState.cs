@@ -5,12 +5,17 @@ using UnityEngine;
 public class EnemyMovementState : State
 {
     private Transform target;
-    private float movementSpeed = 0.5f;
+    private float movementSpeed = 0.25f;
     private Vector2 nextDestination;
 
     public EnemyMovementState(Entity entity, Transform target) : base(entity) 
     {
         this.target = target;
+    }
+    public override void TickFixedUpdate()
+    {
+        Vector3 direction = (nextDestination - new Vector2(entity.transform.position.x, entity.transform.position.y)).normalized;
+        entity.GetRigidBody().MovePosition(entity.transform.position + direction * movementSpeed * Time.deltaTime);
     }
     public override void Tick() 
     { 
@@ -19,8 +24,6 @@ public class EnemyMovementState : State
             nextDestination = GetRandomDestination();
         }
 
-        entity.transform.position = Vector2.MoveTowards(entity.transform.position, nextDestination, movementSpeed * Time.deltaTime);
-        
         if(HasPlayerInSight() == true)
         {
             entity.SetState(new EnemyShootingState(entity, target));

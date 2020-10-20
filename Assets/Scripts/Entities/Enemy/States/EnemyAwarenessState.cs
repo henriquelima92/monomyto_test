@@ -11,10 +11,14 @@ public class EnemyAwarenessState : State
     {
         this.target = target;
     }
+
+    public override void TickFixedUpdate()
+    {
+        Vector3 direction = (target.transform.position - entity.transform.position).normalized;
+        entity.GetRigidBody().MovePosition(entity.transform.position + targetDirection * movementSpeed * Time.deltaTime);
+    }
     public override void Tick()
     {
-        entity.transform.position += targetDirection * movementSpeed * Time.deltaTime;
-
         if(HasEscaped() == true)
         {
             entity.SetState(new EnemyMovementState(entity, target));

@@ -10,6 +10,8 @@ public abstract class State
         this.entity = entity;
     }
     public abstract void Tick();
+    public virtual void TickFixedUpdate() {}
+
     public virtual void OnStateEnter() {}
     public virtual void OnStateExit() {}
 }

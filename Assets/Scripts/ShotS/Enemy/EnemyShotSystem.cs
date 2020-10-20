@@ -18,7 +18,7 @@ public class EnemyShotSystem : ShotSystem
         
         GameObject shotObject = GameObject.Instantiate(prefabs[0], entity.transform.position, Quaternion.identity);
         Shot shot = shotObject.GetComponent<Shot>();
-        shot.Setup(direction, 10, entity);
+        shot.Setup(direction, 0.05f, entity);
 
         ResetSystem();
     }

@@ -5,13 +5,19 @@ using UnityEngine;
 public class EnemyChaseState : State
 {
     private Transform target;
-    private float movementSpeed = 0.5f;
+    private float movementSpeed = 0.25f;
     private float chaseTime = 5f;
     private float currentChaseTime = 0f;
 
     public EnemyChaseState(Entity entity, Transform target) : base(entity) 
     {
         this.target = target;
+    }
+
+    public override void TickFixedUpdate()
+    {
+        Vector3 direction = (target.transform.position - entity.transform.position).normalized;
+        entity.GetRigidBody().MovePosition(entity.transform.position + direction * movementSpeed * Time.deltaTime);
     }
     public override void Tick() 
     {
@@ -21,11 +27,7 @@ public class EnemyChaseState : State
         }
 
         currentChaseTime += Time.deltaTime;
-        if(currentChaseTime < chaseTime)
-        {
-            entity.transform.position = Vector2.MoveTowards(entity.transform.position, target.transform.position, movementSpeed * Time.deltaTime);   
-        }
-        else
+        if (currentChaseTime > chaseTime)
         {
             entity.SetState(new EnemyMovementState(entity, target));
         }

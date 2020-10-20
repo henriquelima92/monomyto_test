@@ -6,20 +6,21 @@ public class NormalShot : Shot
 {
     private void Update()
     {
-        transform.position += direction * movementSpeed * Time.deltaTime;
-        if(Utilities.IsInsideLevelLimits(transform.position) == false)
+        if (Utilities.IsInsideLevelLimits(transform.position) == false)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag != entity.tag && Utilities.GetEntitiesTags().Contains(collision.tag))
+        if (collision.transform.tag != entity.tag && Utilities.GetEntitiesTags().Contains(collision.transform.tag))
         {
-            Debug.Log(collision.transform.tag);
-            collision.GetComponent<Entity>().GetHealthSystem().DecreaseHealth(10f);
-            Debug.Log("hit");
+            collision.transform.GetComponent<Entity>().GetHealthSystem().DecreaseHealth(10f);
+            Destroy(gameObject);
+        }
+        else
+        {
             Destroy(gameObject);
         }
     }

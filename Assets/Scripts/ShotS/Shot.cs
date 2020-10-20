@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Shot : MonoBehaviour
 {
     [SerializeField]
+    protected Rigidbody2D rb;
+    [SerializeField]
     protected Entity entity;
     [SerializeField]
     protected float movementSpeed;
@@ -16,5 +18,17 @@ public abstract class Shot : MonoBehaviour
         this.direction = direction;
         this.movementSpeed = movementSpeed;
         entity = emitter;
+
+        SetToEntityLayer();
+        ShotInDirection(direction);
+    }
+    private void ShotInDirection(Vector3 direction)
+    {
+        rb.AddForce(direction * movementSpeed);
+    }
+
+    private void SetToEntityLayer()
+    {
+        gameObject.layer = entity.gameObject.layer;
     }
 }

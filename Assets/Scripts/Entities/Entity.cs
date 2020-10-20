@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     public Action OnEntityDefeat;
-
+    [SerializeField]
+    protected Rigidbody2D rb;
     [SerializeField]
     protected State currentState;
     [SerializeField]
@@ -43,5 +44,9 @@ public abstract class Entity : MonoBehaviour
     public ShotSystem GetShotSystem()
     {
         return shotSystem != null ? shotSystem : null;
+    }
+    public Rigidbody2D GetRigidBody()
+    {
+        return rb;
     }
 }

@@ -28,6 +28,11 @@ public class PlayerCharacter : Entity
         currentState.Tick();
         shotSystem.Tick();
     }
+
+    private void FixedUpdate()
+    {
+        currentState.TickFixedUpdate();
+    }
     private void OnDestroy()
     {
         OnEntityDefeat -= EntityDefeat;

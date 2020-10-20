@@ -32,6 +32,11 @@ public class EnemyCharacter : Entity
         currentState.Tick();
     }
 
+    private void FixedUpdate()
+    {
+        currentState.TickFixedUpdate();
+    }
+
     private void OnDestroy()
     {
         OnEntityDefeat -= EntityDefeat;
