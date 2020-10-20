@@ -14,11 +14,6 @@ public static class Utilities
     public const string PLAYERTAG = "PlayerEntity";
     public const string BOXTAG = "BoxEntity";
 
-    public static List<string> GetEntitiesTags()
-    {
-        return new List<string> { ENEMYTAG, PLAYERTAG, BOXTAG };
-    }
-
     public static Vector2 GetRandomPointInLevel()
     {
         return new Vector2(

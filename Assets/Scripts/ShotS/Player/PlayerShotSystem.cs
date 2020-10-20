@@ -37,11 +37,9 @@ public class PlayerShotSystem : ShotSystem
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = (new Vector3(mousePosition.x, mousePosition.y, 0f) - entity.transform.position).normalized;
 
-            Debug.Log(direction);
-
             GameObject shotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
             Shot shot = shotObject.GetComponent<Shot>();
-            shot.Setup(direction, 0.05f, entity);
+            shot.Setup(direction, 0.05f, entity, 25f);
         }
         else
         {

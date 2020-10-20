@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     public Action OnEntityDefeat;
-    [SerializeField]
+
     protected Rigidbody2D rb;
     [SerializeField]
     protected State currentState;
     [SerializeField]
-    protected float health = 100f;
+    protected float startHealth = 100f;
     [SerializeField]
     protected HealthSystem healthSystem;
     [SerializeField]

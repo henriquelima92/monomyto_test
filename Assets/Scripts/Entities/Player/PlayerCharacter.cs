@@ -14,7 +14,9 @@ public class PlayerCharacter : Entity
 
     private void Awake()
     {
-        healthSystem = new HealthSystem(this, health);
+        rb = GetComponent<Rigidbody2D>();
+
+        healthSystem = new HealthSystem(this, startHealth);
         shotSystem = new PlayerShotSystem(this, shotPrefabs);
 
         OnEntityDefeat += EntityDefeat;
@@ -36,5 +38,15 @@ public class PlayerCharacter : Entity
     private void OnDestroy()
     {
         OnEntityDefeat -= EntityDefeat;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyShot"))
+        {
+            Shot shot = collision.transform.GetComponent<Shot>();
+            healthSystem.DecreaseHealth(shot.GetDamage());
+            Destroy(collision.gameObject);
+        }
     }
 }

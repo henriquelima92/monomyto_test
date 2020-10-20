@@ -99,9 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3444546351207444051}
-  health: 100
+  startHealth: 100
   shotPrefabs:
   - {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3, type: 3}
+  bulletSpeed: 0.01
+  bulletDamage: 5
 --- !u!58 &2957078559079099709
 CircleCollider2D:
   m_ObjectHideFlags: 0
