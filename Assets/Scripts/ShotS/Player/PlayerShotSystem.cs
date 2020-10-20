@@ -35,10 +35,15 @@ public class PlayerShotSystem : ShotSystem
         {
             shotsAmount[shotSelected] -= 1;
             Vector3 direction = Utilities.GetMousePositionDirection(entity.transform.position);
-
             GameObject shotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
             Shot shot = shotObject.GetComponent<Shot>();
             shot.Setup(direction, entity);
+            if (shotSelected == (int)ShotType.Double)
+            {
+                GameObject doubleshotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
+                Shot doubleshot = doubleshotObject.GetComponent<Shot>();
+                doubleshot.Setup(direction * -1, entity);
+            }
         }
         else
         {
