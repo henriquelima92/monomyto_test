@@ -54,7 +54,7 @@ public class RechargeElement : Entity
         {
             Shot shot = collision.transform.GetComponent<Shot>();
             GetPlayerShotSystem(shot.GetEmitterEntity());
-            healthSystem.DecreaseHealth(shot.GetDamage());
+            healthSystem.DecreaseHealth(startHealth / 2);
 
             Destroy(collision.gameObject);
         }
