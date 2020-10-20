@@ -209,7 +209,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -295,6 +295,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RechargeBox (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
 --- !u!1001 &214968039
@@ -364,6 +369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RechargeBox (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
 --- !u!1001 &258359809
@@ -432,6 +442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RechargeBox (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
@@ -520,7 +535,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -624,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -709,6 +724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RechargeBox (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
@@ -797,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -901,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -1005,7 +1025,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -1109,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -1213,7 +1233,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -1299,6 +1319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RechargeBox (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
 --- !u!1001 &1322402234
@@ -1367,6 +1392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RechargeBox (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
@@ -1455,7 +1485,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -1541,6 +1571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RechargeBox (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
 --- !u!1001 &1958765745
@@ -1609,6 +1644,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RechargeBox (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}
@@ -1697,7 +1737,7 @@ PrefabInstance:
     - target: {fileID: 2087008483485302743, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052565297165709859, guid: 1b3efd6fa5ca13342ad0f8403accce81,
         type: 3}
@@ -1782,6 +1822,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RechargeBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476061761063714525, guid: f9741b374961a1344a40a2befba99ac2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9741b374961a1344a40a2befba99ac2, type: 3}

@@ -41,11 +41,11 @@ public class RechargeElement : Entity
         OnEntityDefeat -= EntityDefeat;
     }
 
-    private void GetPlayerShotSystem(Shot shot)
+    private void GetPlayerShotSystem(Entity entity)
     {
         if(playerShotSytem == null)
         {
-            playerShotSytem = (PlayerShotSystem)shot.GetEmitterEntity().GetShotSystem();
+            playerShotSytem = (PlayerShotSystem)entity.GetShotSystem();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,10 +53,20 @@ public class RechargeElement : Entity
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerShot"))
         {
             Shot shot = collision.transform.GetComponent<Shot>();
+            GetPlayerShotSystem(shot.GetEmitterEntity());
             healthSystem.DecreaseHealth(shot.GetDamage());
-            GetPlayerShotSystem(shot);
 
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Entity entity = collision.gameObject.GetComponent<Entity>();
+            PlayerMovementState playerMovementState = (PlayerMovementState)entity.GetState();
+            if (playerMovementState.GetDashMovement().IsDashing() == true)
+            {
+                GetPlayerShotSystem(entity);
+                healthSystem.DecreaseHealth(healthSystem.GetHealthAmount());
+            }
         }
     }
 }

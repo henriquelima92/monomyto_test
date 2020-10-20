@@ -44,4 +44,9 @@ public class PlayerMovementState : State
     {
 
     }
+
+    public DashMovement GetDashMovement()
+    {
+        return dashMovement;
+    }
 }
