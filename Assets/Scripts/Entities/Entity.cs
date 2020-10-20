@@ -26,13 +26,14 @@ public abstract class Entity : MonoBehaviour
     {
         if(currentState != null)
         {
-            currentState.OnStateEnter();
+            currentState.OnStateExit();
         }
 
         currentState = newState;
 
         if(currentState != null)
         {
+            
             currentState.OnStateEnter();
         }
     }

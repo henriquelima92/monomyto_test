@@ -98,10 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139492b2aa558004a940bd730617ea10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3444546351207444051}
   startHealth: 100
   shotPrefabs:
-  - {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3, type: 3}
+  - {fileID: 8987071496286092626, guid: cacd4d48b2a25424e9b6f685b6843637, type: 3}
   bulletSpeed: 0.01
   bulletDamage: 5
 --- !u!58 &2957078559079099709

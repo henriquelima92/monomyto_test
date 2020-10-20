@@ -33,7 +33,7 @@ public class HealthSystem
         {
             health -= amount;
             OnHealthChange?.Invoke(health);
-            if(health == 0)
+            if(health <= 0)
             {
                 entity.OnEntityDefeat?.Invoke();
             }

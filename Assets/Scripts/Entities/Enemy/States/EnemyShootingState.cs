@@ -24,7 +24,6 @@ public class EnemyShootingState : State
     }
     public override void OnStateEnter() 
     {
-        entity.GetComponent<SpriteRenderer>().color = Color.blue;
         shotSystem = entity.GetShotSystem();
     }
     public override void OnStateExit() 

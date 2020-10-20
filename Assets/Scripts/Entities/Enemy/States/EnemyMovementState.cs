@@ -31,7 +31,6 @@ public class EnemyMovementState : State
     }
     public override void OnStateEnter() 
     {
-        entity.GetComponent<SpriteRenderer>().color = Color.yellow;
         nextDestination = GetRandomDestination();
     }
     public override void OnStateExit() 

@@ -26,10 +26,13 @@ public class EnemyAwarenessState : State
     }
     public override void OnStateEnter() 
     {
+        entity.GetComponent<SpriteRenderer>().color = Color.red;
         targetDirection = (target.transform.position * -1 - entity.transform.position).normalized;
-        entity.GetComponent<SpriteRenderer>().color = Color.magenta;
     }
-    public override void OnStateExit() { }
+    public override void OnStateExit()
+    {
+        entity.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 
     private bool HasEscaped()
     {

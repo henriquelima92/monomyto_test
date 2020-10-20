@@ -2,14 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ShotType
-{
-    Normal,
-    Double,
-    Scare,
-    Frozen
-}
-
 [Serializable]
 public class PlayerShotSystem : ShotSystem
 {
@@ -46,7 +38,7 @@ public class PlayerShotSystem : ShotSystem
 
             GameObject shotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
             Shot shot = shotObject.GetComponent<Shot>();
-            shot.Setup(direction, 0.05f, entity, 25f);
+            shot.Setup(direction, entity);
         }
         else
         {

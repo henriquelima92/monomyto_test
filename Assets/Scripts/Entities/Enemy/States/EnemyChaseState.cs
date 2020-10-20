@@ -34,7 +34,6 @@ public class EnemyChaseState : State
     }
     public override void OnStateEnter() 
     {
-        entity.GetComponent<SpriteRenderer>().color = Color.green;
     }
     public override void OnStateExit() { }
 

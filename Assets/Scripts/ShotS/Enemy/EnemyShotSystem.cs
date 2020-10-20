@@ -7,14 +7,10 @@ public class EnemyShotSystem : ShotSystem
     private Transform target;
     private float reloadTime = 1.5f;
     private float shotTime = 0f;
-    private float bulletSpeed;
-    private float bulletDamage;
 
-    public EnemyShotSystem(Entity entity, List<GameObject> shotPrefabs, Transform target, float bulletSpeed = 0.01f, float bulletDamage = 5f) : base(entity, shotPrefabs)
+    public EnemyShotSystem(Entity entity, List<GameObject> shotPrefabs, Transform target) : base(entity, shotPrefabs)
     {
         this.target = target;
-        this.bulletSpeed = bulletSpeed;
-        this.bulletDamage = bulletDamage;
     }
     public override void CreateShot()
     {
@@ -22,7 +18,7 @@ public class EnemyShotSystem : ShotSystem
         
         GameObject shotObject = GameObject.Instantiate(prefabs[0], entity.transform.position, Quaternion.identity);
         Shot shot = shotObject.GetComponent<Shot>();
-        shot.Setup(direction, bulletSpeed, entity, bulletDamage);
+        shot.Setup(direction, entity);
 
         ResetSystem();
     }

@@ -2,24 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ShotType
+{
+    Normal,
+    Double,
+    Scare,
+    Frozen
+}
+
 public abstract class Shot : MonoBehaviour
 {
+    [SerializeField]
+    protected ShotType type;
     [SerializeField]
     protected Rigidbody2D rb;
     [SerializeField]
     protected Entity entity;
     [SerializeField]
-    protected float movementSpeed;
+    protected float speed;
     [SerializeField]
     protected Vector3 direction;
     [SerializeField]
     protected float damage;
 
-    public void Setup(Vector3 direction, float movementSpeed, Entity emitter, float damage = 10f)
+    public void Setup(Vector3 direction, Entity emitter)
     {
         this.direction = direction;
-        this.movementSpeed = movementSpeed;
-        this.damage = damage;
         entity = emitter;
 
 
@@ -37,9 +45,14 @@ public abstract class Shot : MonoBehaviour
         return damage;
     }
 
+    public ShotType GetShotType()
+    {
+        return type;
+    }
+
     private void ShotInDirection(Vector3 direction)
     {
-        rb.AddForce(direction * movementSpeed);
+        rb.AddForce(direction * speed);
     }
 
     private void SetToEntityLayer()

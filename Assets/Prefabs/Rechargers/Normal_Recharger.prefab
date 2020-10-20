@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5476061761063714527}
   - component: {fileID: 5476061761063714524}
   m_Layer: 12
-  m_Name: RechargeBox
+  m_Name: Normal_Recharger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -273,12 +273,12 @@ PrefabInstance:
     - target: {fileID: 4101785758941404737, guid: 4fc513e7ee89a5845884f6aded6d181a,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4101785758941404737, guid: 4fc513e7ee89a5845884f6aded6d181a,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6579592031255850758, guid: 4fc513e7ee89a5845884f6aded6d181a,
         type: 3}
