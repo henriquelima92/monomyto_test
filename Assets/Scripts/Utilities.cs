@@ -14,6 +14,13 @@ public static class Utilities
     public const string PLAYERTAG = "PlayerEntity";
     public const string BOXTAG = "BoxEntity";
 
+    public static Vector3 GetMousePositionDirection(Vector3 from)
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = (new Vector3(mousePosition.x, mousePosition.y, 0f) - from).normalized;
+        return direction;
+    }
+
     public static Vector2 GetRandomPointInLevel()
     {
         return new Vector2(

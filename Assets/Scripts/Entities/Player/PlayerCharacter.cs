@@ -23,7 +23,7 @@ public class PlayerCharacter : Entity
     }
     private void Start()
     {
-        SetState(new PlayerMovementState(this));
+        SetState(new PlayerMovementState(this, this.GetComponent<MonoBehaviour>()));
     }
     private void Update()
     {

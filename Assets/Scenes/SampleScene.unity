@@ -1796,6 +1796,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: 45939e3e16c205f43a7766ce2e32096f, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6025861832572004352, guid: 45939e3e16c205f43a7766ce2e32096f,
         type: 3}
       propertyPath: m_UsedByEffector
