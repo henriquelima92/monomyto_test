@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ShotType
+{
+    Normal,
+    Double,
+    Scare,
+    Frozen
+}
+
 [Serializable]
 public class PlayerShotSystem : ShotSystem
 {
@@ -13,7 +21,7 @@ public class PlayerShotSystem : ShotSystem
     public PlayerShotSystem(Entity entity, List<GameObject> shotPrefabs) : base(entity, shotPrefabs)
     {
         shotSelected = 0;
-        shotsAmount = new List<int> {10,10,10};
+        shotsAmount = new List<int> {10,10,10,10};
     }
 
     public override void Tick()
@@ -46,9 +54,13 @@ public class PlayerShotSystem : ShotSystem
             Debug.Log("out of shots with index: " + shotSelected);
         }
     }
+    
+    public void Recharge(ShotType type, int amount)
+    {
+        shotsAmount[(int)type] += amount;
+    }
     private void ChangeShotType()
     {
         shotSelected = (shotSelected < shotsAmount.Count - 1) ? (shotSelected += 1) : 0;
-        Debug.Log("change to shot index: " + shotSelected);
     }
 }

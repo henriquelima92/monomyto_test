@@ -6,15 +6,14 @@ public abstract class Entity : MonoBehaviour
 {
     public Action OnEntityDefeat;
 
-    protected Rigidbody2D rb;
-    [SerializeField]
-    protected State currentState;
     [SerializeField]
     protected float startHealth = 100f;
     [SerializeField]
-    protected HealthSystem healthSystem;
-    [SerializeField]
     protected ShotSystem shotSystem;
+
+    protected Rigidbody2D rb;
+    protected HealthSystem healthSystem;
+    protected State currentState;
 
 
     public abstract void EntityDefeat();

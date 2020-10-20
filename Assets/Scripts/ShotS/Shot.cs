@@ -27,6 +27,11 @@ public abstract class Shot : MonoBehaviour
         ShotInDirection(direction);
     }
 
+    public Entity GetEmitterEntity()
+    {
+        return entity;
+    }
+
     public float GetDamage()
     {
         return damage;

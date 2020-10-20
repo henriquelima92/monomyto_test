@@ -7,12 +7,15 @@ public class HealthBar : MonoBehaviour
     private Entity entity;
     [SerializeField]
     private Image barFillImage;
+    private float startHealth;
 
     private void Start()
     {
-        if(entity != null)
+        if (entity != null)
         {
             entity.GetHealthSystem().OnHealthChange += ChangeFill;
+            startHealth = entity.GetHealthSystem().GetHealthAmount();
+            ChangeFill(startHealth);
         }
     }
     private void OnDestroy()
@@ -25,6 +28,6 @@ public class HealthBar : MonoBehaviour
 
     private void ChangeFill(float health)
     {
-        barFillImage.fillAmount = (health/100f);
+        barFillImage.fillAmount = (health/startHealth);
     }
 }
