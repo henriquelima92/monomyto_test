@@ -34,6 +34,7 @@ public class PlayerShotSystem : ShotSystem
         if(shotsAmount[shotSelected] > 0)
         {
             shotsAmount[shotSelected] -= 1;
+            GunsFeedback.OnGunEvent?.Invoke(((ShotType)shotSelected).ToString(), shotsAmount[shotSelected].ToString());
             Vector3 direction = Utilities.GetMousePositionDirection(entity.transform.position);
             GameObject shotObject = GameObject.Instantiate(prefabs[shotSelected], entity.transform.position, Quaternion.identity);
             Shot shot = shotObject.GetComponent<Shot>();
@@ -54,9 +55,12 @@ public class PlayerShotSystem : ShotSystem
     public void Recharge(ShotType type, int amount)
     {
         shotsAmount[(int)type] += amount;
+        GunsFeedback.OnGunEvent?.Invoke(((ShotType)shotSelected).ToString(), shotsAmount[shotSelected].ToString());
+
     }
     private void ChangeShotType()
     {
         shotSelected = (shotSelected < shotsAmount.Count - 1) ? (shotSelected += 1) : 0;
+        GunsFeedback.OnGunEvent?.Invoke(((ShotType)shotSelected).ToString(), shotsAmount[shotSelected].ToString());
     }
 }
