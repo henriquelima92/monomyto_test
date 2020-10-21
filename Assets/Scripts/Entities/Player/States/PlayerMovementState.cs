@@ -49,4 +49,23 @@ public class PlayerMovementState : State
     {
         return dashMovement;
     }
+
+    public override void OnCollisionEvent(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyShot"))
+        {
+            Shot shot = collision.transform.GetComponent<Shot>();
+            entity.GetHealthSystem().DecreaseHealth(shot.GetDamage());
+            GameObject.Destroy(collision.gameObject);
+        }
+        else if(collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Entity enemyEntity = collision.gameObject.GetComponent<Entity>();
+            if (GetDashMovement().IsDashing() == true)
+            {
+                HealthSystem healthSystem = enemyEntity.GetHealthSystem();
+                healthSystem.DecreaseHealth(healthSystem.GetHealthAmount());
+            }
+        }
+    }
 }

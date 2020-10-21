@@ -51,11 +51,6 @@ public class PlayerCharacter : Entity
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyShot"))
-        {
-            Shot shot = collision.transform.GetComponent<Shot>();
-            healthSystem.DecreaseHealth(shot.GetDamage());
-            Destroy(collision.gameObject);
-        }
+        currentState.OnCollisionEvent(collision);
     }
 }

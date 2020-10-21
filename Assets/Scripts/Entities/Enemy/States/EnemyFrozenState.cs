@@ -27,4 +27,14 @@ public class EnemyFrozenState : State
     {
         entity.GetComponent<SpriteRenderer>().color = Color.white;
     }
+
+    public override void OnCollisionEvent(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerShot"))
+        {
+            Shot shot = collision.transform.GetComponent<Shot>();
+            entity.GetHealthSystem().DecreaseHealth(shot.GetDamage());
+            GameObject.Destroy(shot.gameObject);
+        }
+    }
 }

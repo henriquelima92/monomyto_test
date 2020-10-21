@@ -44,4 +44,30 @@ public class EnemyChaseState : State
 
         return false;
     }
+
+    public override void OnCollisionEvent(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerShot"))
+        {
+            Shot shot = collision.transform.GetComponent<Shot>();
+            entity.GetHealthSystem().DecreaseHealth(shot.GetDamage());
+            switch (shot.GetShotType())
+            {
+                case ShotType.Normal:
+                case ShotType.Double:
+                    if (entity.GetHealthSystem().GetHealthAmount() <= (entity.GetStartHealth() / 3))
+                    {
+                        entity.SetState(new EnemyAwarenessState(entity, target));
+                    }
+                    break;
+                case ShotType.Scare:
+                    entity.SetState(new EnemyAwarenessState(entity, target));
+                    break;
+                case ShotType.Frozen:
+                    entity.SetState(new EnemyFrozenState(entity, target));
+                    break;
+            }
+            GameObject.Destroy(shot.gameObject);
+        }
+    }
 }

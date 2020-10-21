@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RechargeElement : Entity
 {
+    public Action<PlayerShotSystem> OnRechargeEvent;
+
     [SerializeField]
     private ShotType shotTypeToRecharge;
     [SerializeField]
@@ -20,7 +23,6 @@ public class RechargeElement : Entity
         PointsFeedback.OnEventOcurred?.Invoke("10", transform.position);
         PointsManager.OnPointUpdate?.Invoke(10);
 
-        playerShotSytem.Recharge(shotTypeToRecharge, shotAmountToRecharge);
         Destroy(gameObject);
     }
 
@@ -34,7 +36,7 @@ public class RechargeElement : Entity
     }
     private void Start()
     {
-        SetState(new RechargeElementMovement(this));
+        SetState(new RechargeElementMovement(this, shotTypeToRecharge, shotAmountToRecharge));
     }
     private void Update()
     {
@@ -50,32 +52,8 @@ public class RechargeElement : Entity
         OnEntityDefeat -= EntityDefeat;
     }
 
-    private void GetPlayerShotSystem(Entity entity)
-    {
-        if(playerShotSytem == null)
-        {
-            playerShotSytem = (PlayerShotSystem)entity.GetShotSystem();
-        }
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerShot"))
-        {
-            Shot shot = collision.transform.GetComponent<Shot>();
-            GetPlayerShotSystem(shot.GetEmitterEntity());
-            healthSystem.DecreaseHealth(startHealth / 2);
-
-            Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            Entity entity = collision.gameObject.GetComponent<Entity>();
-            PlayerMovementState playerMovementState = (PlayerMovementState)entity.GetState();
-            if (playerMovementState.GetDashMovement().IsDashing() == true)
-            {
-                GetPlayerShotSystem(entity);
-                healthSystem.DecreaseHealth(healthSystem.GetHealthAmount());
-            }
-        }
+        currentState.OnCollisionEvent(collision);
     }
 }

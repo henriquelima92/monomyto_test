@@ -52,50 +52,8 @@ public class EnemyCharacter : Entity
         OnEntityDefeat -= EntityDefeat;
     }
 
-    private void ShotHandler(Shot shot)
-    {
-        healthSystem.DecreaseHealth(shot.GetDamage());
-        switch (shot.GetShotType())
-        {
-            case ShotType.Normal:
-            case ShotType.Double:
-                if((currentState is EnemyFrozenState) == false && (currentState is EnemyAwarenessState) == false)
-                {
-                    if (healthSystem.GetHealthAmount() <= (startHealth / 3)) // if the current health is less or equal than 1/3 of the total life, set awareness state
-                    {
-                        SetState(new EnemyAwarenessState(this, target));
-                    }
-                    else
-                    {
-                        if ((currentState is EnemyShootingState) == false) // if enemy was shot and his state is not 'shootingState', set shooting state
-                        {
-                            SetState(new EnemyChaseState(this, target));
-                        }
-                    }
-                }
-            break;
-            case ShotType.Scare:
-                if((currentState is EnemyAwarenessState) == false)
-                {
-                    SetState(new EnemyAwarenessState(this, target));
-                }
-            break;
-            case ShotType.Frozen:
-                if ((currentState is EnemyFrozenState) == false)
-                {
-                    SetState(new EnemyFrozenState(this, target));
-                }
-            break;
-        }
-        Destroy(shot.gameObject);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerShot"))
-        {
-            Shot shot = collision.transform.GetComponent<Shot>();
-            ShotHandler(shot);
-        }
+        currentState.OnCollisionEvent(collision);
     }
 }

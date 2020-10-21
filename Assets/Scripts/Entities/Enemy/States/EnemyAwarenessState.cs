@@ -40,4 +40,20 @@ public class EnemyAwarenessState : State
 
         return false;
     }
+
+    public override void OnCollisionEvent(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerShot"))
+        {
+            Shot shot = collision.transform.GetComponent<Shot>();
+            entity.GetHealthSystem().DecreaseHealth(shot.GetDamage());
+            switch (shot.GetShotType())
+            {
+                case ShotType.Frozen:
+                    entity.SetState(new EnemyFrozenState(entity, target));
+                    break;
+            }
+            GameObject.Destroy(shot.gameObject);
+        }
+    }
 }
