@@ -18,6 +18,8 @@ public class RechargeElement : Entity
     {
         explosionEffect.Play();
         PointsFeedback.OnEventOcurred?.Invoke("10", transform.position);
+        PointsManager.OnPointUpdate?.Invoke(10);
+
         playerShotSytem.Recharge(shotTypeToRecharge, shotAmountToRecharge);
         Destroy(gameObject);
     }

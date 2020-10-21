@@ -15,6 +15,8 @@ public class PlayerCharacter : Entity
         Camera.main.transform.SetParent(null);
         explosionEffect.Play();
 
+        StaticLevelCanvas.OnLevelEnd?.Invoke();
+
         Destroy(gameObject);
     }
 

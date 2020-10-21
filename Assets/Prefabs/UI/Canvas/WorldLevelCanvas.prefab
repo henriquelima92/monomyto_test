@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 5561699733814421880}
   - component: {fileID: 5561699733814421883}
   m_Layer: 5
-  m_Name: InLevelCanvas
+  m_Name: WorldLevelCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

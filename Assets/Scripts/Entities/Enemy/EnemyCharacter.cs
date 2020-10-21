@@ -17,6 +17,7 @@ public class EnemyCharacter : Entity
     {
         explosionEffect.Play();
         PointsFeedback.OnEventOcurred?.Invoke("20", transform.position);
+        PointsManager.OnPointUpdate?.Invoke(20);
         Destroy(gameObject);
     }
 

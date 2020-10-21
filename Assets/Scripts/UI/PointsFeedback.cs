@@ -28,7 +28,7 @@ public class PointsFeedback : MonoBehaviour
             if(points[i].gameObject.activeInHierarchy == false)
             {
                 points[i].transform.position = position + pointOffset;
-                points[i].text = $"+{text}";
+                points[i].text = $"+{text} points";
                 points[i].gameObject.SetActive(true);
                 float animationLength = points[i].GetComponent<Animator>().runtimeAnimatorController.animationClips[0].length;
                 StartCoroutine(Utilities.DisableObjectAfterTime(points[i].gameObject, animationLength));
