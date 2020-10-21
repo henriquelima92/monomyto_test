@@ -8,11 +8,16 @@ public class RechargeElement : Entity
     private ShotType shotTypeToRecharge;
     [SerializeField]
     private int shotAmountToRecharge = 10;
+    [SerializeField]
+    private ParticleSystem deathParticleSystem;
 
+    private ExplosionEffect explosionEffect;
     private PlayerShotSystem playerShotSytem;
 
     public override void EntityDefeat()
     {
+        explosionEffect.Play();
+
         playerShotSytem.Recharge(shotTypeToRecharge, shotAmountToRecharge);
         Destroy(gameObject);
     }
@@ -21,6 +26,8 @@ public class RechargeElement : Entity
     {
         rb = GetComponent<Rigidbody2D>();
         healthSystem = new HealthSystem(this, startHealth);
+        explosionEffect = new ExplosionEffect(deathParticleSystem);
+
         OnEntityDefeat += EntityDefeat;
     }
     private void Start()

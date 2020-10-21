@@ -9,9 +9,14 @@ public class EnemyCharacter : Entity
     private List<GameObject> shotPrefabs;
     [SerializeField]
     private float bulletSpeed;
+    [SerializeField]
+    private ParticleSystem deathParticleSystem;
+    private ExplosionEffect explosionEffect;
 
     public override void EntityDefeat()
     {
+        explosionEffect.Play();
+
         Destroy(gameObject);
     }
 
@@ -22,6 +27,7 @@ public class EnemyCharacter : Entity
 
         healthSystem = new HealthSystem(this, startHealth);
         shotSystem = new EnemyShotSystem(this, shotPrefabs, target);
+        explosionEffect = new ExplosionEffect(deathParticleSystem);
 
         OnEntityDefeat += EntityDefeat;
     }

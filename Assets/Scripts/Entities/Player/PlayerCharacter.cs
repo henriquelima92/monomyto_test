@@ -6,9 +6,15 @@ public class PlayerCharacter : Entity
 {
     [SerializeField]
     private List<GameObject> shotPrefabs;
+    [SerializeField]
+    private ParticleSystem deathParticleSystem;
+    private ExplosionEffect explosionEffect;
 
     public override void EntityDefeat()
     {
+        Camera.main.transform.SetParent(null);
+        explosionEffect.Play();
+
         Destroy(gameObject);
     }
 
@@ -18,7 +24,8 @@ public class PlayerCharacter : Entity
 
         healthSystem = new HealthSystem(this, startHealth);
         shotSystem = new PlayerShotSystem(this, shotPrefabs);
-
+        explosionEffect = new ExplosionEffect(deathParticleSystem);
+        
         OnEntityDefeat += EntityDefeat;
     }
     private void Start()
