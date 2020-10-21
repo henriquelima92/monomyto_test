@@ -8,6 +8,8 @@ public class PointsFeedback : MonoBehaviour
     public static Action<string, Vector3> OnEventOcurred;
     [SerializeField]
     private List<TextMeshProUGUI> points;
+    [SerializeField]
+    private Vector3 pointOffset; 
 
     private void Awake()
     {
@@ -25,7 +27,7 @@ public class PointsFeedback : MonoBehaviour
         {
             if(points[i].gameObject.activeInHierarchy == false)
             {
-                points[i].transform.position = position;
+                points[i].transform.position = position + pointOffset;
                 points[i].text = $"+{text}";
                 points[i].gameObject.SetActive(true);
                 float animationLength = points[i].GetComponent<Animator>().runtimeAnimatorController.animationClips[0].length;
