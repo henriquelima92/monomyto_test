@@ -44,4 +44,10 @@ public static class Utilities
         yield return new WaitForSeconds(time);
         gameobject.SetActive(false);
     }
+
+    public static IEnumerator CallMethodWithDelay(Action method, float time)
+    {
+        yield return new WaitForSeconds(time);
+        method();
+    }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyFrozenState : State
 {
-    private Transform target;
     private float frozenTime = 3.5f;
     public EnemyFrozenState(Entity entity, Transform target) : base(entity)
     {
@@ -13,6 +12,8 @@ public class EnemyFrozenState : State
 
     public override void Tick()
     {
+        if (target == null) return;
+
         frozenTime -= Time.deltaTime;
         if(frozenTime < 0)
         {

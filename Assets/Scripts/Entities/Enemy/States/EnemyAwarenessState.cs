@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyAwarenessState : State
 {
-    private Transform target;
     private Vector3 targetDirection;
     private float movementSpeed = 0.5f;
     public EnemyAwarenessState(Entity entity, Transform target) : base(entity) 
@@ -14,11 +13,15 @@ public class EnemyAwarenessState : State
 
     public override void TickFixedUpdate()
     {
+        if (target == null) return;
+
         entity.GetRigidBody().MovePosition(entity.transform.position + (targetDirection*-1) * movementSpeed * Time.deltaTime);
     }
     public override void Tick()
     {
-        if(HasEscaped() == true)
+        if (target == null) return; 
+        ;
+        if (HasEscaped() == true)
         {
             entity.SetState(new EnemyMovementState(entity, target));
         }

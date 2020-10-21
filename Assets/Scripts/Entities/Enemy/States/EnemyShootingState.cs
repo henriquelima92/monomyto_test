@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyShootingState : State
 {
-    private Transform target;
     private ShotSystem shotSystem;
 
     public EnemyShootingState(Entity entity, Transform target) : base(entity)
@@ -13,7 +12,9 @@ public class EnemyShootingState : State
     }
     public override void Tick() 
     {
-        if(HasPlayerInSight() == true)
+        if (target == null) return;
+
+        if (HasPlayerInSight() == true)
         {
             shotSystem.Tick();
         }

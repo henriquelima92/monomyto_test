@@ -4,7 +4,6 @@ using UnityEngine;
 [Serializable]
 public class EnemyMovementState : State
 {
-    private Transform target;
     private float movementSpeed = 0.25f;
     private Vector2 nextDestination;
 
@@ -14,12 +13,16 @@ public class EnemyMovementState : State
     }
     public override void TickFixedUpdate()
     {
+        if (target == null) return;
+
         Vector3 direction = (nextDestination - new Vector2(entity.transform.position.x, entity.transform.position.y)).normalized;
         entity.GetRigidBody().MovePosition(entity.transform.position + direction * movementSpeed * Time.deltaTime);
     }
     public override void Tick() 
-    { 
-        if(ReachedDestination() == true)
+    {
+        if (target == null) return;
+
+        if (ReachedDestination() == true)
         {
             nextDestination = GetRandomDestination();
         }
@@ -32,9 +35,6 @@ public class EnemyMovementState : State
     public override void OnStateEnter() 
     {
         nextDestination = GetRandomDestination();
-    }
-    public override void OnStateExit() 
-    {
     }
 
     private bool HasPlayerInSight()

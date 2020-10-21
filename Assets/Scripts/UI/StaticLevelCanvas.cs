@@ -36,7 +36,10 @@ public class StaticLevelCanvas : MonoBehaviour
 
     private void LevelEnd()
     {
-        edgePanel.SetActive(false);
-        middlePanel.SetActive(true);
+        StartCoroutine(Utilities.CallMethodWithDelay(() => 
+        {
+            edgePanel.SetActive(false);
+            middlePanel.SetActive(true);
+        }, 2));
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyChaseState : State
 {
-    private Transform target;
     private float movementSpeed = 0.25f;
     private float chaseTime = 5f;
     private float currentChaseTime = 0f;
@@ -16,11 +15,20 @@ public class EnemyChaseState : State
 
     public override void TickFixedUpdate()
     {
+        if (target == null) return;
+
         Vector3 direction = (target.transform.position - entity.transform.position).normalized;
         entity.GetRigidBody().MovePosition(entity.transform.position + direction * movementSpeed * Time.deltaTime);
     }
     public override void Tick() 
     {
+        if (target == null) return;
+
+        if (target.gameObject.activeInHierarchy == false)
+        {
+            return;
+        }
+
         if (HasPlayerInSight() == true)
         {
             entity.SetState(new EnemyShootingState(entity, target));
@@ -32,11 +40,6 @@ public class EnemyChaseState : State
             entity.SetState(new EnemyMovementState(entity, target));
         }
     }
-    public override void OnStateEnter() 
-    {
-    }
-    public override void OnStateExit() { }
-
     private bool HasPlayerInSight()
     {
         if (Vector2.Distance(entity.transform.position, target.position) < 2f)
