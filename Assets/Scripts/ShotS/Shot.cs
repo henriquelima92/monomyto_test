@@ -30,8 +30,6 @@ public abstract class Shot : MonoBehaviour
         this.direction = direction;
         entity = emitter;
 
-
-        SetToEntityLayer();
         ShotInDirection(direction);
     }
 
@@ -53,18 +51,6 @@ public abstract class Shot : MonoBehaviour
     private void ShotInDirection(Vector3 direction)
     {
         rb.AddForce(direction * speed);
-    }
-
-    private void SetToEntityLayer()
-    {
-        if(entity.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            gameObject.layer = LayerMask.NameToLayer("PlayerShot");
-        }
-        else if(entity.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-        {
-            gameObject.layer = LayerMask.NameToLayer("EnemyShot");
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
