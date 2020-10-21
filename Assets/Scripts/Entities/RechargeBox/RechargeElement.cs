@@ -17,7 +17,7 @@ public class RechargeElement : Entity
     public override void EntityDefeat()
     {
         explosionEffect.Play();
-
+        PointsFeedback.OnEventOcurred?.Invoke("10", transform.position);
         playerShotSytem.Recharge(shotTypeToRecharge, shotAmountToRecharge);
         Destroy(gameObject);
     }

@@ -16,7 +16,7 @@ public class EnemyCharacter : Entity
     public override void EntityDefeat()
     {
         explosionEffect.Play();
-
+        PointsFeedback.OnEventOcurred?.Invoke("20", transform.position);
         Destroy(gameObject);
     }
 

@@ -38,4 +38,10 @@ public static class Utilities
 
         return false;
     }
+
+    public static IEnumerator DisableObjectAfterTime(GameObject gameobject, float time)
+    {
+        yield return new WaitForSeconds(time);
+        gameobject.SetActive(false);
+    }
 }
