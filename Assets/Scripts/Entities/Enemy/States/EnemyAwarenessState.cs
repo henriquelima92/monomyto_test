@@ -14,8 +14,7 @@ public class EnemyAwarenessState : State
 
     public override void TickFixedUpdate()
     {
-        Vector3 direction = (target.transform.position - entity.transform.position).normalized;
-        entity.GetRigidBody().MovePosition(entity.transform.position + targetDirection * movementSpeed * Time.deltaTime);
+        entity.GetRigidBody().MovePosition(entity.transform.position + (targetDirection*-1) * movementSpeed * Time.deltaTime);
     }
     public override void Tick()
     {
@@ -27,7 +26,7 @@ public class EnemyAwarenessState : State
     public override void OnStateEnter() 
     {
         entity.GetComponent<SpriteRenderer>().color = Color.red;
-        targetDirection = (target.transform.position * -1 - entity.transform.position).normalized;
+        targetDirection = (target.transform.position - entity.transform.position).normalized;
     }
     public override void OnStateExit()
     {
