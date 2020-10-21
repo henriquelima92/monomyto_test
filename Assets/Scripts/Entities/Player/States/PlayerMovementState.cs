@@ -16,7 +16,7 @@ public class PlayerMovementState : State
     {
         if(dashMovement.IsDashing() == false)
         {
-            axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            axisInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
