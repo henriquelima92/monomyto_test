@@ -35,6 +35,14 @@ public class LevelBuilder : MonoBehaviour
         OnStartTimerEnd -= Build;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     private void Build()
     {
         Instantiate(playerCharacter, new Vector3(0f, 0f, 0f), Quaternion.identity);
