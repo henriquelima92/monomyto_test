@@ -22,6 +22,9 @@ public class PlayerCharacter : Entity
 
     private void Awake()
     {
+        Camera.main.transform.SetParent(transform);
+        Camera.main.transform.position = new Vector3(0f, 0f, -10f);
+
         rb = GetComponent<Rigidbody2D>();
 
         healthSystem = new HealthSystem(this, startHealth);

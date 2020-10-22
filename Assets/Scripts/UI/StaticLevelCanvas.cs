@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class StaticLevelCanvas : MonoBehaviour
 {
+    public static Action OnLevelStart;
     public static Action OnLevelEnd;
 
     [SerializeField]
@@ -17,11 +18,13 @@ public class StaticLevelCanvas : MonoBehaviour
     private void Awake()
     {
         OnLevelEnd += LevelEnd;
+        OnLevelStart += LevelStart;
     }
 
     private void OnDestroy()
     {
         OnLevelEnd -= LevelEnd;
+        OnLevelStart -= LevelStart;
     }
 
     public void PlayAgain()
@@ -32,6 +35,11 @@ public class StaticLevelCanvas : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    private void LevelStart()
+    {
+        edgePanel.SetActive(true);
     }
 
     private void LevelEnd()
