@@ -15,13 +15,12 @@ public class RechargeElement : Entity
     private ParticleSystem deathParticleSystem;
 
     private ExplosionEffect explosionEffect;
-    private PlayerShotSystem playerShotSytem;
 
     public override void EntityDefeat()
     {
         explosionEffect.Play();
-        PointsFeedback.OnEventOcurred?.Invoke("10", transform.position);
-        PointsManager.OnPointUpdate?.Invoke(10);
+        PointsFeedback.OnEventOcurred?.Invoke(winPoints.ToString(), transform.position);
+        PointsManager.OnPointUpdate?.Invoke(winPoints);
 
         Destroy(gameObject);
     }

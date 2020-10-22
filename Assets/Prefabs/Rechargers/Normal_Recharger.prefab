@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 50
+  winPoints: 10
   shotTypeToRecharge: 0
   shotAmountToRecharge: 10
   deathParticleSystem: {fileID: 7022711743838296388}

@@ -10,6 +10,8 @@ public abstract class Entity : MonoBehaviour
     protected float startHealth = 100f;
     [SerializeField]
     protected ShotSystem shotSystem;
+    [SerializeField]
+    protected int winPoints;
 
     protected Rigidbody2D rb;
     protected HealthSystem healthSystem;

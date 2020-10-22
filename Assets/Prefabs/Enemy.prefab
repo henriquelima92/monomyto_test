@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
+  winPoints: 20
   shotPrefabs:
   - {fileID: 8987071496286092626, guid: cacd4d48b2a25424e9b6f685b6843637, type: 3}
   bulletSpeed: 0.01
