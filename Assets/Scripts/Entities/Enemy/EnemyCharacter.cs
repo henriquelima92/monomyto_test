@@ -18,6 +18,7 @@ public class EnemyCharacter : Entity
         explosionEffect.Play();
         PointsFeedback.OnEventOcurred?.Invoke(winPoints.ToString(), transform.position);
         PointsManager.OnPointUpdate?.Invoke(winPoints);
+        LevelBuilder.OnEnemyDefeat?.Invoke(gameObject);
         Destroy(gameObject);
     }
 

@@ -6,14 +6,14 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     [Header("Level Limits")]
-    [Range(-20.0f, -3f)]
-    public float MinWidth = -20f;
-    [Range(3f, 20.0f)]
-    public float MaxWidth = 0f;
-    [Range(-3.0f, -20f)]
-    public float MinHeight = -20f;
-    [Range(3f, 20.0f)]
-    public float MaxHeight = 0f;
+    [Range(-3, -20)]
+    public int MinWidth = -3;
+    [Range(3, 20)]
+    public int MaxWidth = 3;
+    [Range(-3, -20)]
+    public int MinHeight = -3;
+    [Range(3, 20)]
+    public int MaxHeight = 3;
 
     [Header("Enemies")]
     public int EnemiesNumber;

@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCharacter : Entity
 {
+    public static Action OnLevelWin;
+
     [SerializeField]
     private List<GameObject> shotPrefabs;
     [SerializeField]
@@ -23,6 +26,7 @@ public class PlayerCharacter : Entity
     private void Awake()
     {
         OnEntityDefeat += EntityDefeat;
+        OnLevelWin += LevelWin;
     }
     private void Start()
     {
@@ -50,10 +54,17 @@ public class PlayerCharacter : Entity
     private void OnDestroy()
     {
         OnEntityDefeat -= EntityDefeat;
+        OnLevelWin -= LevelWin;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.OnCollisionEvent(collision);
+    }
+
+    private void LevelWin()
+    {
+        Camera.main.transform.SetParent(null);
+        this.enabled = false;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelBuilder : MonoBehaviour
 {
     public static Action OnStartTimerEnd;
+    public static Action<GameObject> OnEnemyDefeat;
     public static LevelBuilder builder;
 
     [SerializeField]
@@ -23,21 +24,28 @@ public class LevelBuilder : MonoBehaviour
     private GameObject frozenRecharge;
     [SerializeField]
     private GameObject playerCharacter;
+    [SerializeField]
+    private LineRenderer lineRenderer;
 
-    
+    private List<GameObject> enemies;
 
     private float minPlayerDistance = -3f;
     private float maxPlayerDistance = 3f;
 
     private void Start()
     {
+        enemies = new List<GameObject>();
+
         builder = this;
         OnStartTimerEnd += Build;
+        OnEnemyDefeat += EnemyDefeated;
+        SetLineRendererLevelLimits();
     }
 
     private void OnDestroy()
     {
         OnStartTimerEnd -= Build;
+        OnEnemyDefeat -= EnemyDefeated;
     }
 
     private void Update()
@@ -48,10 +56,21 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
+    private void SetLineRendererLevelLimits()
+    {
+        lineRenderer.SetPosition(0, new Vector3(levelData.MinWidth, levelData.MaxWidth, levelData.MaxWidth));
+        lineRenderer.SetPosition(1, new Vector3(levelData.MaxWidth, levelData.MaxWidth, levelData.MaxWidth));
+        lineRenderer.SetPosition(2, new Vector3(levelData.MaxWidth, levelData.MinHeight, levelData.MaxWidth));
+        lineRenderer.SetPosition(3, new Vector3(levelData.MinWidth, levelData.MinHeight, levelData.MaxWidth));
+        //levelData.MaxWidth- levelData.MinWidth
+        //levelData.MaxHeight - levelData.MinHeight
+
+    }
+
     private void Build()
     {
-        Instantiate(playerCharacter, new Vector3(0f, 0f, 0f), Quaternion.identity);
-        InstantiateGroupInRandomPosition(enemy, levelData.EnemiesNumber, false);
+        Instantiate(playerCharacter, new Vector2(levelData.MinWidth + levelData.MaxWidth , levelData.MinHeight + levelData.MaxHeight), Quaternion.identity);
+        enemies.AddRange(InstantiateGroupInRandomPosition(enemy, levelData.EnemiesNumber, false));
 
         InstantiateGroupInRandomPosition(normalRecharge, levelData.Normal, true);
         InstantiateGroupInRandomPosition(doubleRecharge, levelData.Double, true);
@@ -59,8 +78,9 @@ public class LevelBuilder : MonoBehaviour
         InstantiateGroupInRandomPosition(frozenRecharge, levelData.Frozen, true);
     }
 
-    private void InstantiateGroupInRandomPosition(GameObject prefab, int count, bool ignoreMinPosition)
+    private List<GameObject> InstantiateGroupInRandomPosition(GameObject prefab, int count, bool ignoreMinPosition)
     {
+        List<GameObject> instantiated = new List<GameObject>();
         for (int i = 0; i <count; i++)
         {
             Vector2 position = Vector2.zero;
@@ -76,8 +96,10 @@ public class LevelBuilder : MonoBehaviour
                     GetRandomPostion(levelData.MinWidth, levelData.MaxWidth),
                     GetRandomPostion(levelData.MinHeight, levelData.MaxHeight));
             }
-            Instantiate(prefab, position, Quaternion.identity);
+            GameObject obj = Instantiate(prefab, position, Quaternion.identity);
+            instantiated.Add(obj);
         }
+        return instantiated;
     }
 
     private float GetRandomPostionWithMinDistance(float min, float max)
@@ -94,6 +116,20 @@ public class LevelBuilder : MonoBehaviour
     {
         float position = UnityEngine.Random.Range(min, max);
         return position;
+    }
+
+    private void EnemyDefeated(GameObject obj)
+    {
+        if(enemies.Contains(obj) == true)
+        {
+            enemies.Remove(obj);
+        }
+
+        if(enemies.Count <= 0)
+        {
+            StaticLevelCanvas.OnLevelEnd?.Invoke();
+            PlayerCharacter.OnLevelWin?.Invoke();
+        }
     }
 
     public KeyCode GetDashKeyCode()
