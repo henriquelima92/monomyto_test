@@ -22,6 +22,10 @@ public class PlayerCharacter : Entity
 
     private void Awake()
     {
+        OnEntityDefeat += EntityDefeat;
+    }
+    private void Start()
+    {
         Camera.main.transform.SetParent(transform);
         Camera.main.transform.position = new Vector3(0f, 0f, -10f);
 
@@ -30,11 +34,7 @@ public class PlayerCharacter : Entity
         healthSystem = new HealthSystem(this, startHealth);
         shotSystem = new PlayerShotSystem(this, shotPrefabs);
         explosionEffect = new ExplosionEffect(deathParticleSystem);
-        
-        OnEntityDefeat += EntityDefeat;
-    }
-    private void Start()
-    {
+
         SetState(new PlayerMovementState(this, this.GetComponent<MonoBehaviour>()));
     }
     private void Update()

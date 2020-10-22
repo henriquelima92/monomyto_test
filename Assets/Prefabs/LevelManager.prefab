@@ -315,41 +315,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaticLevelCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802073392711334582, guid: 8602e801f724ac74e961c429eb0761ed,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8602e801f724ac74e961c429eb0761ed, type: 3}
 --- !u!224 &8124893088519194979 stripped

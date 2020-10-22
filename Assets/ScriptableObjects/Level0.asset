@@ -21,6 +21,10 @@ MonoBehaviour:
   Double: 5
   Scare: 8
   Frozen: 6
+  NormalStartAmmo: 25
+  DoubleStartAmmo: 10
+  ScareStartAmmo: 10
+  FrozenStartAmmo: 8
   DashMovement: 324
   Shot: 323
   ChangeWeapon: 325

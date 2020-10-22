@@ -109,6 +109,23 @@ public class LevelBuilder : MonoBehaviour
         return levelData.ChangeWeapon;
     }
 
+    public int GetNormalStartAmmo()
+    {
+        return levelData.NormalStartAmmo;
+    }
+    public int GetDoubleStartAmmo()
+    {
+        return levelData.DoubleStartAmmo;
+    }
+    public int GetScareStartAmmo()
+    {
+        return levelData.ScareStartAmmo;
+    }
+    public int GetFrozenStartAmmo()
+    {
+        return levelData.FrozenStartAmmo;
+    }
+
     public bool IsInsideLevelLimits(Vector2 position)
     {
         if (position.x < levelData.MaxWidth && position.x > levelData.MinWidth

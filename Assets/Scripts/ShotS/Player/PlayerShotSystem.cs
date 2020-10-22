@@ -13,7 +13,12 @@ public class PlayerShotSystem : ShotSystem
     public PlayerShotSystem(Entity entity, List<GameObject> shotPrefabs) : base(entity, shotPrefabs)
     {
         shotSelected = 0;
-        shotsAmount = new List<int> {10,10,10,10};
+        shotsAmount = new List<int> {
+            LevelBuilder.builder.GetNormalStartAmmo(),
+            LevelBuilder.builder.GetDoubleStartAmmo(),
+            LevelBuilder.builder.GetScareStartAmmo(),
+            LevelBuilder.builder.GetFrozenStartAmmo()};
+        GunsFeedback.OnGunEvent?.Invoke(((ShotType)shotSelected).ToString(), shotsAmount[shotSelected].ToString());
     }
 
     public override void Tick()
@@ -45,10 +50,6 @@ public class PlayerShotSystem : ShotSystem
                 Shot doubleshot = doubleshotObject.GetComponent<Shot>();
                 doubleshot.Setup(direction * -1, entity);
             }
-        }
-        else
-        {
-            Debug.Log("out of shots with index: " + shotSelected);
         }
     }
     

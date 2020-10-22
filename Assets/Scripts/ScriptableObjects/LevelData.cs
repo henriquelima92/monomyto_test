@@ -24,6 +24,12 @@ public class LevelData : ScriptableObject
     public int Scare;
     public int Frozen;
 
+    [Header("Player")]
+    public int NormalStartAmmo;
+    public int DoubleStartAmmo;
+    public int ScareStartAmmo;
+    public int FrozenStartAmmo;
+
     [Header("Keyboard/Mouse buttons")]
     public KeyCode DashMovement;
     public KeyCode Shot;
