@@ -19,6 +19,7 @@ O desafio era criar um jogo no estilo **Diep.io** na Unity, buscando um código 
 ## **Instruções para jogar:**
 - Baixar o conteúdo da branch **release-0.1**
 - Executar o arquivo **ShooterMonomytoTest.exe**
+- O jogador usa o mouse para mirar.
 - As teclas setadas para essa release são :
 
 ### **Teclas**
@@ -26,6 +27,7 @@ O desafio era criar um jogo no estilo **Diep.io** na Unity, buscando um código 
 - Dash - **botão direito do mouse**
 - Tiro - **botão esquerdo do mouse**
 - Troca de arma - **clique da roda do mouse**
+- Botão de quit - **tecla esc** (o jogador pode sair do jogo em qualquer momento) 
 
 ## TO DO 
 - [] Adicionar mais feedbacks;
