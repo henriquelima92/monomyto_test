@@ -15,11 +15,14 @@ public class RechargeElementMovement : State
         this.shotAmountToRecharge = shotAmountToRecharge;
     }
 
+    public override void Tick()
+    {
+        KeepInLevelLimits();
+    }
     public override void TickFixedUpdate()
     {
         entity.GetRigidBody().MovePosition(entity.transform.position + direction * movementSpeed * Time.deltaTime);
     }
-    public override void Tick() { }
     public override void OnStateEnter()
     {
         direction = new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), 0).normalized;
@@ -54,6 +57,27 @@ public class RechargeElementMovement : State
         {
             PlayerShotSystem playerShotSystem = (PlayerShotSystem)entity.GetShotSystem();
             playerShotSystem.Recharge(shotTypeToRecharge, shotAmountToRecharge);
+        }
+    }
+
+    private void KeepInLevelLimits()
+    {
+        Vector2 currentPosition = entity.transform.position;
+        if (entity.transform.position.x < LevelBuilder.builder.GetWidth().x)
+        {
+            entity.transform.position = new Vector2(LevelBuilder.builder.GetWidth().y, currentPosition.y);
+        }
+        if(entity.transform.position.x > LevelBuilder.builder.GetWidth().y)
+        { 
+            entity.transform.position = new Vector2(LevelBuilder.builder.GetWidth().x, currentPosition.y);
+        }
+        if (entity.transform.position.y < LevelBuilder.builder.GetHeight().x)
+        {
+            entity.transform.position = new Vector2(currentPosition.x, LevelBuilder.builder.GetHeight().y);
+        }
+        if (entity.transform.position.y > LevelBuilder.builder.GetHeight().y)
+        {
+            entity.transform.position = new Vector2(currentPosition.x, LevelBuilder.builder.GetHeight().x);
         }
     }
 }

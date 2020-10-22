@@ -125,6 +125,15 @@ public class LevelBuilder : MonoBehaviour
     {
         return levelData.FrozenStartAmmo;
     }
+    
+    public Vector2 GetWidth()
+    {
+        return new Vector2(levelData.MinWidth, levelData.MaxWidth);
+    }
+    public Vector2 GetHeight()
+    {
+        return new Vector2(levelData.MinHeight, levelData.MaxHeight);
+    }
 
     public bool IsInsideLevelLimits(Vector2 position)
     {
