@@ -15,6 +15,11 @@ public class StaticLevelCanvas : MonoBehaviour
     [SerializeField]
     private GameObject middlePanel;
 
+    [SerializeField]
+    private Texture2D cursorTexture;
+    [SerializeField]
+    private Vector2 hotSpot = Vector2.zero;
+
     private void Awake()
     {
         OnLevelEnd += LevelEnd;
@@ -40,10 +45,12 @@ public class StaticLevelCanvas : MonoBehaviour
     private void LevelStart()
     {
         edgePanel.SetActive(true);
+        Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.ForceSoftware);
     }
 
     private void LevelEnd()
     {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         StartCoroutine(Utilities.CallMethodWithDelay(() => 
         {
             edgePanel.SetActive(false);

@@ -24,6 +24,8 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField]
     private GameObject playerCharacter;
 
+    
+
     private float minPlayerDistance = -3f;
     private float maxPlayerDistance = 3f;
 

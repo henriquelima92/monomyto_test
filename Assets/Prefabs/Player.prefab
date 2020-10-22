@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
+  winPoints: 0
   shotPrefabs:
   - {fileID: 8987071496286092626, guid: ed2dbb55d32d5da48b4c8c7c07f60ff3, type: 3}
   - {fileID: 8987071496286092626, guid: 1f0a73907557c8d4094f28ef56273096, type: 3}
@@ -195,7 +196,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Time: 0.75
+  m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
