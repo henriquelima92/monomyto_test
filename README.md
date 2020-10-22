@@ -1,1 +1,0 @@
-# monomyto_test
