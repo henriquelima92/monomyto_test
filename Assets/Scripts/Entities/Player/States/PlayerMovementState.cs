@@ -19,7 +19,7 @@ public class PlayerMovementState : State
             axisInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(LevelBuilder.builder.GetDashKeyCode()))
         {
             dashMovement.DoDash();
         }

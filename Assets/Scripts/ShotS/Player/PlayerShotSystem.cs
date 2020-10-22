@@ -18,12 +18,12 @@ public class PlayerShotSystem : ShotSystem
 
     public override void Tick()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(LevelBuilder.builder.GetShotKeyCode()))
         {
             CreateShot();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(LevelBuilder.builder.GetWeaponKeyCode()))
         {
             ChangeShotType();
         }

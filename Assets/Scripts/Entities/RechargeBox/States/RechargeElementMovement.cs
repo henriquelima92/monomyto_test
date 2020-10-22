@@ -38,13 +38,13 @@ public class RechargeElementMovement : State
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Entity entity = collision.gameObject.GetComponent<Entity>();
-            PlayerMovementState playerMovementState = (PlayerMovementState)entity.GetState();
+            Entity playerEntity = collision.gameObject.GetComponent<Entity>();
+            PlayerMovementState playerMovementState = (PlayerMovementState)playerEntity.GetState();
             if (playerMovementState.GetDashMovement().IsDashing() == true)
             {
                 HealthSystem healthSystem = entity.GetHealthSystem();
                 healthSystem.DecreaseHealth(healthSystem.GetHealthAmount());
-                Recharge(entity,healthSystem);
+                Recharge(playerEntity, healthSystem);
             }
         }
     }
