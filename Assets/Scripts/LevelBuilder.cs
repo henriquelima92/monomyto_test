@@ -24,6 +24,9 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField]
     private GameObject playerCharacter;
 
+    private float minPlayerDistance = -3f;
+    private float maxPlayerDistance = 3f;
+
     private void Start()
     {
         builder = this;
@@ -46,32 +49,49 @@ public class LevelBuilder : MonoBehaviour
     private void Build()
     {
         Instantiate(playerCharacter, new Vector3(0f, 0f, 0f), Quaternion.identity);
-        InstantiateGroupInRandomPosition(enemy, levelData.EnemiesNumber);
-        InstantiateGroupInRandomPosition(normalRecharge, levelData.Normal);
-        InstantiateGroupInRandomPosition(doubleRecharge, levelData.Double);
-        InstantiateGroupInRandomPosition(scareRecharge, levelData.Scare);
-        InstantiateGroupInRandomPosition(frozenRecharge, levelData.Frozen);
+        InstantiateGroupInRandomPosition(enemy, levelData.EnemiesNumber, false);
+
+        InstantiateGroupInRandomPosition(normalRecharge, levelData.Normal, true);
+        InstantiateGroupInRandomPosition(doubleRecharge, levelData.Double, true);
+        InstantiateGroupInRandomPosition(scareRecharge, levelData.Scare, true);
+        InstantiateGroupInRandomPosition(frozenRecharge, levelData.Frozen, true);
     }
 
-    private void InstantiateGroupInRandomPosition(GameObject prefab, int count)
+    private void InstantiateGroupInRandomPosition(GameObject prefab, int count, bool ignoreMinPosition)
     {
         for (int i = 0; i <count; i++)
         {
-            Instantiate(
-                prefab,
-                new Vector2(GetExcludedRangePosition(levelData.MinWidth, levelData.MaxWidth, levelData.EnemiesStartingDistance),
-                            GetExcludedRangePosition(levelData.MinHeight, levelData.MaxHeight, levelData.EnemiesStartingDistance)),
-                Quaternion.identity);
+            Vector2 position = Vector2.zero;
+            if (ignoreMinPosition == false)
+            {
+                position = new Vector2(
+                GetRandomPostionWithMinDistance(levelData.MinWidth, levelData.MaxWidth),
+                GetRandomPostionWithMinDistance(levelData.MinHeight, levelData.MaxHeight));
+            }
+            else
+            {
+                position = new Vector2(
+                    GetRandomPostion(levelData.MinWidth, levelData.MaxWidth),
+                    GetRandomPostion(levelData.MinHeight, levelData.MaxHeight));
+            }
+            Instantiate(prefab, position, Quaternion.identity);
         }
     }
 
-    private float GetExcludedRangePosition(float min, float max, float distanceFromPlayer)
+    private float GetRandomPostionWithMinDistance(float min, float max)
     {
-        float minValue = UnityEngine.Random.Range(min, distanceFromPlayer);
-        float maxValue = UnityEngine.Random.Range(distanceFromPlayer, max);
+        float minValue = UnityEngine.Random.Range(min, minPlayerDistance);
+        float maxValue = UnityEngine.Random.Range(maxPlayerDistance, max);
 
         float resolution = UnityEngine.Random.Range(0, 100) >= 50 ? maxValue : minValue;
+        
         return resolution;
+    }
+
+    private float GetRandomPostion(float min, float max)
+    {
+        float position = UnityEngine.Random.Range(min, max);
+        return position;
     }
 
     public KeyCode GetDashKeyCode()
@@ -85,5 +105,22 @@ public class LevelBuilder : MonoBehaviour
     public KeyCode GetWeaponKeyCode()
     {
         return levelData.ChangeWeapon;
+    }
+
+    public bool IsInsideLevelLimits(Vector2 position)
+    {
+        if (position.x < levelData.MaxWidth && position.x > levelData.MinWidth
+            && position.y < levelData.MaxHeight && position.y > levelData.MinHeight)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    public Vector2 GetRandomPointInLevel()
+    {
+        return new Vector2(
+            UnityEngine.Random.Range(levelData.MinWidth, levelData.MaxWidth),
+            UnityEngine.Random.Range(levelData.MinHeight, levelData.MaxHeight));
     }
 }

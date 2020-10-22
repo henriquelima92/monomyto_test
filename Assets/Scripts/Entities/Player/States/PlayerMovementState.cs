@@ -30,8 +30,9 @@ public class PlayerMovementState : State
         if(dashMovement.IsDashing() == false)
         {
             Vector3 direction = axisInput.normalized * movementSpeed * Time.deltaTime;
-            if (Utilities.IsInsideLevelLimits(entity.transform.position + direction) == true)
+            if (LevelBuilder.builder.IsInsideLevelLimits(entity.transform.position + direction) == true)
             {
+                
                 entity.GetRigidBody().MovePosition(entity.transform.position + direction);
             }
         }

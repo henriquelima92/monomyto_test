@@ -40,7 +40,7 @@ public class DashMovement
         while (currentDashTime < dashLength)
         {
             currentDashTime += Time.deltaTime;
-            if (Utilities.IsInsideLevelLimits(entityRigidBody.transform.position + direction) == true)
+            if (LevelBuilder.builder.IsInsideLevelLimits(entityRigidBody.transform.position + direction) == true)
             {
                 entityRigidBody.velocity = direction * dashSpeed;
             }

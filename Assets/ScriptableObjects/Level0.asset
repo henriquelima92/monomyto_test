@@ -16,7 +16,6 @@ MonoBehaviour:
   MaxWidth: 7
   MinHeight: -7
   MaxHeight: 7
-  EnemiesStartingDistance: 10
   EnemiesNumber: 22
   Normal: 15
   Double: 5

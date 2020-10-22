@@ -46,7 +46,7 @@ public class EnemyMovementState : State
     }
     private Vector2 GetRandomDestination()
     {
-        return Utilities.GetRandomPointInLevel();
+        return LevelBuilder.builder.GetRandomPointInLevel();
     }
     private bool ReachedDestination()
     {
