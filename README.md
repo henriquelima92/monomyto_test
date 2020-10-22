@@ -3,8 +3,6 @@
 O desafio era criar um jogo no estilo **Diep.io** na Unity, buscando um código limpo e bem estruturado.
 
 ## **O que foi desenvolvido:**
-
-# Markdown
 - [x] Mecânica de movimentação de personagem;
 - [x] Caixas destrutíveis (recarregam uma quantidade de um tipo de munição);
 - [x] Mecânica de soco (chamei de Dash, na minha versão, além de destruir as caixas de munição, também pode matar inimigos e também para se movimentar mais rápido);
@@ -30,8 +28,6 @@ O desafio era criar um jogo no estilo **Diep.io** na Unity, buscando um código 
 - Troca de arma - **clique da roda do mouse**
 
 ## TO DO 
-
-# Markdown
 - [] Adicionar mais feedbacks;
 - [] Adicionar sons;
 - [] Criar um menu de seleção de níveis;
